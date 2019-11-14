@@ -1,10 +1,10 @@
 {
-  "name": "ecl-website-manager",
+  "name": "ecl-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "ECL website manager",
   "main": "./bin/index.js",
   "bin": {
-    "ecl-web-manager": "./bin/index.js"
+    "ecl-website": "./bin/index.js"
   },
   "author": "",
   "license": "ISC",

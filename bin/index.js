@@ -1,46 +1,44 @@
 #!/usr/bin/env node
 
-const { exec } = require("child_process");
 const program = require("commander");
 
 const pkg = require("../package.json");
 
-const cwd = process.env.ECL_DIR || "../europa-component-library/";
+const cwd = process.env.ECL_DIR || "../europa-component-library";
+
+// Commands
+const clean = require("../commands/clean");
+const dist = require("../commands/dist");
+const install = require("../commands/install");
+const status = require("../commands/status");
+const use = require("../commands/use");
 
 program.version(pkg.version).usage("ecl-web-manager [command] [option]");
 
 program
   .command("status")
   .description("check current tag/branch")
-  .action(() => {
-    exec("git status", { cwd }, (err, stdout) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      console.log(stdout);
-    });
-  });
+  .action(() => status({ cwd }));
 
 program
   .command("use")
-  .description("switch to a specific tag")
-  .action(() => {
-    if (program.args.length <= 0) {
-      console.log("Please specify a tag");
-      return;
-    }
+  .description("checkout a specific place of history")
+  .action(() => use({ program, cwd }));
 
-    exec(`git checkout ${program.args[0]}`, { cwd }, (err, stdout) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
+program
+  .command("clean")
+  .description("remove node_modules, dist, build, etc.")
+  .action(() => clean({ cwd }));
 
-      console.log(stdout);
-    });
-  });
+program
+  .command("install")
+  .description("fetch dependencies")
+  .action(() => install({ cwd }));
+
+program
+  .command("dist")
+  .description("build site for production")
+  .action(() => dist({ cwd }));
 
 // If no arguments provided, display help menu.
 if (process.argv.slice(2).length <= 0) {
