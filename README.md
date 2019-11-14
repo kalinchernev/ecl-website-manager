@@ -6,7 +6,7 @@ Clone the repository and install dependencies.
 
 ## Configuration
 
-By default, ECL project folder is assumed to be right next to this project, i.e. `../europa-component-library`. If this is not the case, please change in this way:
+By default, location of ECL is `./europa-component-library`. To change:
 
 ```sh
 export ECL_DIR='ecl/custom/location'
