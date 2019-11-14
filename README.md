@@ -16,14 +16,6 @@ export ECL_DIR='ecl/custom/location'
 
 ## Usage
 
-Make binary accessible:
-
-```sh
-yarn link
-```
-
-Use the CLI
-
 ```
 $ ecl-website
 ```
