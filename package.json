@@ -1,6 +1,6 @@
 {
   "name": "ecl-website",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ECL website manager",
   "main": "./bin/index.js",
   "bin": {
