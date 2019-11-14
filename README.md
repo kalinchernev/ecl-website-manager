@@ -2,7 +2,9 @@
 
 ## Installation
 
-Clone the repository and install dependencies.
+```sh
+$ npm install -g ecl-website
+```
 
 ## Configuration
 
