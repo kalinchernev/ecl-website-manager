@@ -4,7 +4,7 @@ const program = require("commander");
 
 const pkg = require("../package.json");
 
-const cwd = process.env.ECL_DIR || "./europa-component-library";
+const cwd = process.env.ECL_DIR || ".";
 
 // Commands
 const clean = require("../commands/clean");
